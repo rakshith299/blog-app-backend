@@ -110,6 +110,8 @@ const loginUser = async(req,res) => {
     try{
         userObj = await User.findOne({username});
 
+        console.log(userObj);
+
         if(!userObj){
             return res.status(400).send({
                 status: 400,
@@ -118,6 +120,7 @@ const loginUser = async(req,res) => {
         }
 
     }catch(err){
+        console.log(err)
         return res.status(400).send({
             status: 400,
             message: "Error while fetching data from database",
